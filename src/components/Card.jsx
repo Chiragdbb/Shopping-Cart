@@ -1,5 +1,5 @@
 import React from "react";
-import { Toaster, toast, useToaster } from "react-hot-toast";
+import { toast } from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { add, remove } from "../redux/slices/CartSlice";
 
@@ -15,10 +15,8 @@ const Card = ({ data }) => {
 		match.matches
 			? toast.success("Added to Cart!")
 			: toast.success("Added to Cart!", {
-					style: {
-						scale: "0.8",
-					},
-			  });
+					style: { scale: "0.8" },
+				});
 	}
 
 	function removeHandler() {
@@ -26,10 +24,8 @@ const Card = ({ data }) => {
 		match.matches
 			? toast.error("Item Removed from Cart!")
 			: toast.error("Item Removed from Cart!", {
-					style: {
-						scale: "0.8",
-					},
-			  });
+					style: {scale: "0.8"}
+				});
 	}
 
 	return (
@@ -55,7 +51,7 @@ const Card = ({ data }) => {
 					${data.price}
 				</span>
 
-				{/* cart item basis */}
+				{/* buttons on product-in-cart basis */}
 				{cart.some((val) => val.id === data.id) ? (
 					<button
 						className="border-2 border-gray-700 font-semibold rounded-full px-3 py-[5px] uppercase text-xs text-gray-700 group-hover:bg-gray-700 group-hover:text-white transition-colors duration-500"

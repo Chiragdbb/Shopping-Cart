@@ -17,7 +17,7 @@ const Product = ({ post }) => {
 					style: {
 						scale: "0.8",
 					},
-			  });
+			});
 	};
 
 	return (

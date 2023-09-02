@@ -23,14 +23,14 @@ const Home = () => {
 	}, []);
 
 	return (
-		<div className="bg-gray-50 min-h-screen py-12">
-            <div className="w-[1100px] mx-auto">
+		<div className="bg-gray-50 min-h-screen py-8 sm:py-12">
+            <div className="max-w-[1100px] px-4 mx-auto">
                 {loading ? (
                     <div className="h-[60vh] flex justify-center items-center">
                         <h2 className="text-2xl font-semibold ">Loading...</h2>
                     </div>
                 ) : (
-                    <div className="flex flex-wrap justify-between gap-y-8">
+                    <div className="flex flex-wrap justify-evenly gap-y-8 gap-x-2">
                         {productsData.map((productData) => (
                             <Card key={productData.id} data={productData} />
                         ))}

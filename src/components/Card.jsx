@@ -1,25 +1,40 @@
 import React from "react";
-import { toast } from "react-hot-toast";
+import { Toaster, toast, useToaster } from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { add, remove } from "../redux/slices/CartSlice";
 
 const Card = ({ data }) => {
-	const { cart } = useSelector((state) => state);
+	const cart = useSelector((state) => state.cart.cartItems);
 	const dispatch = useDispatch();
+
+	const match = matchMedia("(min-width: 768px)");
 
 	function addHandler() {
 		dispatch(add(data));
-		toast.success("Added to Cart!");
+
+		match.matches
+			? toast.success("Added to Cart!")
+			: toast.success("Added to Cart!", {
+					style: {
+						scale: "0.8",
+					},
+			  });
 	}
 
 	function removeHandler() {
 		dispatch(remove(data.id));
-		toast.error("Item Removed from Cart!");
+		match.matches
+			? toast.error("Item Removed from Cart!")
+			: toast.error("Item Removed from Cart!", {
+					style: {
+						scale: "0.8",
+					},
+			  });
 	}
 
 	return (
 		<div
-			className="w-[260px] py-4 px-4 shadow-lg rounded-xl bg-white flex flex-col gap-y-2 justify-between
+			className="w-[83vw] sm:w-[260px] py-4 px-4 shadow-lg rounded-xl bg-white flex flex-col gap-y-2 justify-between
         hover:scale-110 hover:shadow-2xl hover:cursor-pointer transition-transform duration-500 ease-out group"
 		>
 			<h2 className="text-center mx-auto font-semibold text-gray-800 truncate w-[85%] text-lg ">

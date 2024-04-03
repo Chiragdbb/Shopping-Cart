@@ -51,7 +51,7 @@ const Cart = () => {
 							<p className="mt-4 sm:mt-6 font-semibold text-base sm:text-xl text-gray-700">
 								{`Total Amount : `}
 								<span className="text-black font-bold">
-									${totalAmount}
+									${totalAmount.toFixed(2)}
 								</span>
 							</p>
 							<button className="w-full mt-6 py-3 bg-green-700 border-2 border-green-700 font-bold text-white text-base sm:text-xl rounded-md hover:bg-white hover:text-green-700 transition-colors duration-500">
